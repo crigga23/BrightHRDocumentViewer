@@ -8,3 +8,20 @@
   </h1>
 </div>
 
+<div *ngFor="let document of documents">
+  <a href="#" *ngIf="document.type !== 'folder'" class="btn btn-link">
+    <i class="fa fa-file-o" aria-hidden="true"></i>{{document.name}}
+  </a>
+
+  <a href="#" type="button" *ngIf="document.type === 'folder'">
+    <i class="fa fa-folder-o" aria-hidden="true"></i>{{document.name}}
+  </a>
+  <ul *ngFor="let file of document.files">
+    <li>
+      <a href="#">
+        <i class="fa fa-file-o" aria-hidden="true"></i>{{file.name}}
+      </a>
+    </li>
+  </ul>
+
+</div>
